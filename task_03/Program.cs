@@ -10,32 +10,17 @@ int[] CreateArray(int size, int min, int max)
     }
     return array;
 }
-int[] arr = CreateArray(10, 100, 999);
-
-Console.WriteLine($"Array-[{string.Join(",", arr)}]");
-
-
-int size = arr.Length;
-int length = size - 1;
-
-for (int i = 0; i < length / 2; i++, length--)
+int[] FlipArray(int[] array)
 {
-    int temp = arr[i];
-    arr[i] = arr[length];
-    arr[length] = temp;
+    for (int i = 0; i <= array.Length / 2; i++)
+    {
+        int temp = array[i];
+        array[i] = array[array.Length - 1 - i];
+        array[array.Length - 1 - i] = temp;
+    }
+    return array;
 }
-
-Console.WriteLine($"Flip Array[{string.Join(",", arr)}]");
-// int[] FlipArray(int[] array)
-// {
-//     int size = array.Length;
-//     int length = size - 1;
-//     for (int i = 0; i < length / 2; i++, length--)
-//     {
-//         int temp = array[i];
-//         array[i] = array[length];
-//         array[length] = temp;
-//     }
-//     return array;
-// }
-// int[] flipArray = FlipArray(arr);
+int[] arr = CreateArray(10, 100, 999);
+Console.WriteLine($"Array-[{string.Join(",", arr)}]");
+int[] flipArray = FlipArray(arr);
+Console.WriteLine($"FlipArray-[{string.Join(",", flipArray)}]");
