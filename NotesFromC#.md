@@ -1,6 +1,6 @@
 заметки по си шарп:
 <!-- Установить курсор -->
-Console.SetCursor(rows,columns)
+Console.SetCursorPosition(rows,columns);
 <!-- Заполнение пустая строка -->
 string digits=String.Empty;
 
@@ -28,4 +28,7 @@ else
 {
     Console.WriteLine("Символ в нижнем регистре");
 }
-
+<!-- Проверка на наличие других символов кроме цифр, 
+принимает строку и если в строке все цифры возвращает целое число-->
+ int.TryParse(number, out int result);
+    return result;
