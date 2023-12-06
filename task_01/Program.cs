@@ -40,7 +40,7 @@ bool ParityCheckNumber(int number) // Метод для проверки чис�
 while (true)
 {
     Console.WriteLine("Введите целое число:");
-    string? stringNumber = Console.ReadLine();
+    string stringNumber = Console.ReadLine()!;
     if (int.TryParse(stringNumber, out int result))
     {
         if (ParityCheckNumber(SumNumber(result)))
@@ -48,13 +48,13 @@ while (true)
             Console.WriteLine("Сумма чисел чётная, программа завершена");
             break;
         }
-        Console.WriteLine("Сумма чисел не чётная, программа не завершена");
+        else Console.WriteLine("Сумма чисел не чётная, программа не завершена");
         continue;
     }
-    else if (FindSymbol(Convert.ToString(result), 'q'))
+    else if (FindSymbol(stringNumber, 'q'))
     {
         Console.WriteLine("Некорректный ввод, но присутствует STOP-символ 'q', программа завершена");
         break;
     }
-    Console.WriteLine("Некорректный ввод, программа не завершена");
+    else Console.WriteLine("Некорректный ввод, программа не завершена");
 }
